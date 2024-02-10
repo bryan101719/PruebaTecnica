@@ -1,0 +1,60 @@
+﻿<Window x:Class="FrontEnd.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FrontEnd"
+        xmlns:resourse="clr-namespace:FrontEnd.Labels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl x:Name="TabControl">
+            <TabItem Header="{x:Static resourse:PrincipalEtiquetas.Libros}" >
+                <Grid Background="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="BtnCrearLibro" Grid.Row="0" Grid.Column="0" Content="{x:Static resourse:PrincipalEtiquetas.Crear}" Width="100"/>
+                    <Button Name="BtnModificarLibro" Grid.Row="0" Grid.Column="1"  Content="{x:Static resourse:PrincipalEtiquetas.Modificar}" Width="100"/>
+                    <Button Name="BtnEliminarLibro" Grid.Row="0" Grid.Column="2"  Content="{x:Static resourse:PrincipalEtiquetas.Eliminar}" Width="100"/>
+                    <DataGrid x:Name="GrdLibro" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10" SelectionMode="Single" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="{x:Static resourse:PrincipalEtiquetas.GridNombreLibro}" Width="*" Binding="{Binding Path=Nombre}"/>
+                            <DataGridTextColumn Header="{x:Static resourse:PrincipalEtiquetas.GridFechaLibro}" Width="*" Binding="{Binding Path=Fecha}"/>
+                            <DataGridTextColumn Header="{x:Static resourse:PrincipalEtiquetas.GridAutorLibro}" Width="*" Binding="{Binding Path=NombreAutor}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="{x:Static resourse:PrincipalEtiquetas.Autores}">
+                <Grid Background="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="BtnCrearAutor" Grid.Row="0" Grid.Column="0" Content="{x:Static resourse:PrincipalEtiquetas.Crear}" Width="100"/>
+                    <Button Name="BtnModificarAutor" Grid.Row="0" Grid.Column="1"  Content="{x:Static resourse:PrincipalEtiquetas.Modificar}" Width="100"/>
+                    <Button Name="BtnEliminarAutor" Grid.Row="0" Grid.Column="2"  Content="{x:Static resourse:PrincipalEtiquetas.Eliminar}" Width="100"/>
+                    <DataGrid x:Name="GrdAutor" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10" SelectionMode="Single" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="{x:Static resourse:PrincipalEtiquetas.GridNombreAutor}" Width="*" Binding="{Binding Path=Nombre}"/>
+                            <DataGridTextColumn Header="{x:Static resourse:PrincipalEtiquetas.GridCantidadLibros}" Width="*" Binding="{Binding Path=CantidadLibros}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
